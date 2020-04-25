@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/d2i8al3kxs36wcu0?svg=true)](https://ci.appveyor.com/project/Cancelkam/cartorder)
