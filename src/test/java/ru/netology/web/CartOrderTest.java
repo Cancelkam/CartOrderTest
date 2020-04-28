@@ -6,8 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -15,19 +15,20 @@ public class CartOrderTest {
     private WebDriver driver;
 
     @BeforeAll
-    static void setUpAll() {
-        System.setProperty("webdriver.chrome.driver","driver//win//chromedriver.exe" );
+    public static void setupClass() {
+        WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
-    void setUp() {
+    public void setupTest() {
         driver = new ChromeDriver();
     }
 
     @AfterEach
-    void tearDown() {
-        driver.quit();
-        driver = null;
+    public void teardown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
     @Test
